@@ -35,7 +35,7 @@ enum OrientationPreference: String, CaseIterable, Identifiable, Equatable {
 final class OrientationLock: ObservableObject {
     static let shared = OrientationLock()
 
-    private static let defaultsKey = "com.joshuasmithobrien.lcarscalendar.orientationPreference"
+    private static let defaultsKey = "com.lcarscalendar.orientationPreference"
 
     @Published var preference: OrientationPreference {
         didSet { UserDefaults.standard.set(preference.rawValue, forKey: Self.defaultsKey) }

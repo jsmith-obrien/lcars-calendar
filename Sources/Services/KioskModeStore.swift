@@ -18,7 +18,7 @@ import UIKit
 final class KioskModeStore: ObservableObject {
     static let shared = KioskModeStore()
 
-    private static let defaultsKey = "com.joshuasmithobrien.lcarscalendar.kioskModeEnabled"
+    private static let defaultsKey = "com.lcarscalendar.kioskModeEnabled"
 
     @Published var isEnabled: Bool {
         didSet { UserDefaults.standard.set(isEnabled, forKey: Self.defaultsKey) }

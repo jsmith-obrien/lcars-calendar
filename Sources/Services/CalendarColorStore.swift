@@ -3,7 +3,7 @@ import Foundation
 /// Persists calendarId -> color/label/enabled state across launches, so
 /// colors stay stable once assigned instead of reshuffling on every sync.
 final class CalendarColorStore {
-    private let defaultsKey = "com.joshuasmithobrien.lcarscalendar.calendarSources"
+    private let defaultsKey = "com.lcarscalendar.calendarSources"
     private let palette = ["#FF9900", "#9999FF", "#CC6666", "#99CCFF", "#CC99CC", "#66CCCC"]
 
     private var stored: [String: CalendarSource] {

@@ -1,0 +1,16 @@
+# XcodeGen — regenerate with: xcodegen generate
+LCARSCalendar.xcodeproj/
+
+# Xcode
+xcuserdata/
+*.xcuserdata/
+DerivedData/
+*.xcworkspace/xcuserdata/
+*.xcuserstate
+
+# macOS
+.DS_Store
+*.DS_Store
+
+# Build
+build/

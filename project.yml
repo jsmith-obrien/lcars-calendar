@@ -1,0 +1,63 @@
+name: LCARSCalendar
+schemes:
+  LCARSCalendar:
+    build:
+      targets:
+        LCARSCalendar: all
+    run:
+      config: Debug
+options:
+  bundleIdPrefix: com.joshuasmithobrien
+  deploymentTarget:
+    iOS: "15.0"
+  createIntermediateGroups: true
+packages:
+  GoogleSignIn:
+    url: https://github.com/google/GoogleSignIn-iOS
+    from: 9.2.0
+targets:
+  LCARSCalendar:
+    type: application
+    platform: iOS
+    sources:
+      - Sources
+    dependencies:
+      - package: GoogleSignIn
+        product: GoogleSignIn
+    info:
+      path: Sources/Info.plist
+      properties:
+        CFBundleDisplayName: LCARS Calendar
+        UILaunchScreen:
+          UIColorName: ""
+        # Both landscape orientations are declared here as the outer bound —
+        # portrait is still fully excluded. Which ONE is actually active at
+        # any moment is narrowed down at runtime (Sources/AppDelegate.swift +
+        # Sources/Services/OrientationLock.swift), switchable from the
+        # Config screen so moving the iPad to a different fridge spot (and
+        # routing the charging cable out the other side) doesn't need a
+        # rebuild. A physical tilt still can't flip it — only that toggle can.
+        UISupportedInterfaceOrientations~ipad:
+          - UIInterfaceOrientationLandscapeLeft
+          - UIInterfaceOrientationLandscapeRight
+        UIStatusBarStyle: UIStatusBarStyleLightContent
+        UIRequiresFullScreen: true
+        ITSAppUsesNonExemptEncryption: false
+        # Google Sign-In OAuth client, project "LCARS Calendar"
+        # (apt-mark-501320-a3), created 2026-07-03. Values from Google's own
+        # downloaded client plist, not hand-reversed.
+        GIDClientID: "876549669987-nhbjm5uld88t7q86bk94dkt0kjihgag2.apps.googleusercontent.com"
+        CFBundleURLTypes:
+          - CFBundleURLSchemes:
+              - "com.googleusercontent.apps.876549669987-nhbjm5uld88t7q86bk94dkt0kjihgag2"
+    settings:
+      base:
+        PRODUCT_BUNDLE_IDENTIFIER: com.joshuasmithobrien.lcarscalendar
+        MARKETING_VERSION: "0.1"
+        CURRENT_PROJECT_VERSION: "1"
+        GENERATE_INFOPLIST_FILE: NO
+        TARGETED_DEVICE_FAMILY: "2"
+        SWIFT_VERSION: "5.0"
+        CODE_SIGN_STYLE: Automatic
+        DEVELOPMENT_TEAM: 4358K79J79
+        ENABLE_USER_SCRIPT_SANDBOXING: NO
